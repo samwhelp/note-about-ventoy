@@ -29,6 +29,12 @@ git clone https://github.com/Teraskull/bigsur-grub2-theme.git
 cp bigsur-grub2-theme/ventoy /media/$(id -un)/Ventoy -a
 ```
 
+或是
+
+```
+cp bigsur-grub2-theme/ventoy /var/run/media/$(id -un)/Ventoy -a
+```
+
 就更換完成了，可以重開機
 
 以下是觀看相關的資訊。
