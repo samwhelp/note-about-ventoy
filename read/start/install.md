@@ -231,7 +231,30 @@ Install Ventoy to /dev/sdc successfully finished.
 
 ## 確認
 
-接下來只是觀看安裝好後，隨身碟相關的資訊。
+接下來只是安裝好後，觀看隨身碟相關的資訊。
+
+執行下面指令
+
+``` sh
+sudo ./Ventoy2Disk.sh -l /dev/sdc
+```
+
+顯示
+
+```
+
+**********************************************
+      Ventoy: 1.0.91  x86_64
+      longpanda admin@ventoy.net
+      https://www.ventoy.net
+**********************************************
+
+Ventoy Version in Disk: 1.0.91
+Disk Partition Style  : MBR
+Secure Boot Support   : YES
+
+```
+
 
 執行下面指令
 
