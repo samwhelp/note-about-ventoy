@@ -11,7 +11,7 @@ parent: 入門
 
 ## 方式一
 
-> 執行下面指令，建立新的「分割表」，不建立「分割區」。
+> 執行下面指令，建立新的「磁碟分割表」，不建立「分割區」。
 
 ``` sh
 sudo parted --script "/dev/sdc" -- \
@@ -35,7 +35,7 @@ Number  Start   End    Size   File system  Name  Flags
 
 ## 方式二
 
-> 執行下面指令，建立新的「分割表」，並建立「一個分割區」。
+> 執行下面指令，建立新的「磁碟分割表」，並建立「一個分割區」。
 
 ``` sh
 sudo parted --script "/dev/sdc" -- \
