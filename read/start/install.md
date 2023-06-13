@@ -144,7 +144,8 @@ Usage:  Ventoy2Disk.sh CMD [ OPTION ] /dev/sdX
 
 ## 安裝
 
-執行下面指令，安裝「Ventoy」到「隨身碟」的操作步驟。
+執行下面指令，安裝「Ventoy」到「隨身碟(/dev/sdc)」的操作步驟。
+
 
 執行
 
