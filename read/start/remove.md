@@ -14,7 +14,7 @@ parent: 入門
 > 執行下面指令，建立新的「磁碟分割表」，不建立「分割區」。
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	print free
 ```
@@ -38,11 +38,21 @@ Number  Start   End    Size   File system  Name  Flags
 > 執行下面指令，建立新的「磁碟分割表」，並建立「一個分割區」。
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	mkpart primary 1M '-1' \
 	print
 ```
+
+或是執行下面的指令 (上面「-1」改成「100%」，同等效用)
+
+``` sh
+sudo parted --script -- "/dev/sdc" \
+	mktable gpt \
+	mkpart primary 1M '100%' \
+	print
+```
+
 
 顯示
 
@@ -102,12 +112,21 @@ Number  Start   End    Size   File system  Name     Flags
 ```
 
 
+也可以執行下面指令，連同「Free Space」的部份顯示出來。
+
+``` sh
+sudo parted /dev/sdc print free
+```
+
+
 ## 其他分割法的參考指令
+
+> 以下「'-1'」，可以改成「'100%'」，同等效用。
 
 執行下面指令
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc"\
 	mktable gpt \
 	mkpart primary 1M '50%' \
 	mkpart primary '50%' '-1' \
@@ -117,7 +136,7 @@ sudo parted --script "/dev/sdc" -- \
 執行下面指令
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	mkpart primary 1M 2M \
 	mkpart primary 2M '-1' \
@@ -128,7 +147,7 @@ sudo parted --script "/dev/sdc" -- \
 執行下面指令
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	mkpart primary 1M 2M \
 	mkpart primary 2M '50%' \
@@ -140,7 +159,7 @@ sudo parted --script "/dev/sdc" -- \
 執行下面指令
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	mkpart primary 1M 2M \
 	mkpart primary 2M '30%' \
@@ -153,7 +172,7 @@ sudo parted --script "/dev/sdc" -- \
 執行下面指令
 
 ``` sh
-sudo parted --script "/dev/sdc" -- \
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	mkpart primary 1M 2M \
 	mkpart primary 2M '33%' \

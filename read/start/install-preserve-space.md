@@ -114,7 +114,7 @@ sudo cfdisk /dev/sdc
 > 將「額外預留硬碟空間」，建立「分割區」
 
 ``` sh
-sudo parted --script /dev/sdc -- \
+sudo parted --script -- /dev/sdc \
     mkpart primary 91.8GB '-1' \
     print
 ```
@@ -123,7 +123,16 @@ sudo parted --script /dev/sdc -- \
 
 > 關於「'-1'」指的是「End」到「最後」，也就是所有的額外空間。
 
-> 關於「--」，是因為要下「'-1'」，這樣才不會出錯。可以參考「man bash」找到「--」的用法。
+> 關於「--」，是因為要下「'-1'」這個參數，這樣才不會出錯。可以參考「man bash」找到「--」的用法。
+
+
+或是執行下面的指令 (上面「-1」改成「100%」，同等效用)
+
+``` sh
+sudo parted --script -- /dev/sdc \
+    mkpart primary 91.8GB '100%' \
+    print
+```
 
 完成後會顯示
 
