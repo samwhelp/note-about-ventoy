@@ -12,10 +12,17 @@ parent: 入門
 
 接下來紀錄，如何更換開機選單的佈景主題，
 
+## 執行步驟
+
+* [下載](#下載)
+* [安裝](#安裝)
+* [概覽](#概覽)
 
 ## BigSur GRUB Theme
 
 * [BigSur GRUB Theme](https://www.gnome-look.org/p/1443844/) ([GitHub](https://github.com/Teraskull/bigsur-grub2-theme))
+
+## 下載
 
 執行下面指令
 
@@ -23,26 +30,31 @@ parent: 入門
 git clone https://github.com/Teraskull/bigsur-grub2-theme.git
 ```
 
+## 安裝
+
 執行下面指令
 
 ``` sh
-cp bigsur-grub2-theme/ventoy /media/$(id -un)/Ventoy -a
+cp -rf bigsur-grub2-theme/ventoy/. /run/media/$(id -un)/Ventoy/ventoy
 ```
 
 或是
 
-```
-cp bigsur-grub2-theme/ventoy /var/run/media/$(id -un)/Ventoy -a
+``` sh
+cp -rf bigsur-grub2-theme/ventoy/. /var/run/media/$(id -un)/Ventoy/ventoy
 ```
 
-就更換完成了，可以重開機
+> 操作步驟到此就更換完成了，就可以直接重新開機，選擇裝有「Ventoy」的「隨身碟」來觀看結果。
+
+
+## 概覽
 
 以下是觀看相關的資訊。
 
 執行
 
 ``` sh
-ls /media/$(id -un)/Ventoy/ventoy -1
+ls -1 /run/media/$(id -un)/Ventoy/ventoy
 ```
 
 顯示
@@ -55,13 +67,13 @@ ventoy.json
 執行
 
 ``` sh
-tree /media/$(id -un)/Ventoy/ventoy
+tree /run/media/$(id -un)/Ventoy/ventoy
 ```
 
 顯示
 
 ```
-/media/sam/Ventoy/ventoy
+/run/media/sam/Ventoy/ventoy
 ├── themes
 │   └── bigsur
 │       ├── background.png
@@ -84,6 +96,7 @@ tree /media/$(id -un)/Ventoy/ventoy
 │       │   ├── bsd.png
 │       │   ├── cancel.png
 │       │   ├── chakra.png
+│       │   ├── clonezilla.png
 │       │   ├── crunchbang.png
 │       │   ├── debian.png
 │       │   ├── deepin.png
@@ -133,7 +146,10 @@ tree /media/$(id -un)/Ventoy/ventoy
 │       │   ├── unknown.png
 │       │   ├── unset.png
 │       │   ├── void.png
+│       │   ├── win11.png
 │       │   ├── windows.png
+│       │   ├── winvista.png
+│       │   ├── winxp.png
 │       │   ├── xubuntu.png
 │       │   └── zorin-os.png
 │       ├── item_c.png
@@ -173,13 +189,13 @@ tree /media/$(id -un)/Ventoy/ventoy
 │       └── theme.txt
 └── ventoy.json
 
-3 directories, 107 files
+4 directories, 111 files
 ```
 
 執行下面指令，觀看「[Ventoy/ventoy/ventoy.json](https://github.com/Teraskull/bigsur-grub2-theme/blob/master/ventoy/ventoy.json)」的內容
 
 ``` sh
-cat /media/$(id -un)/Ventoy/ventoy/ventoy.json
+cat /run/media/$(id -un)/Ventoy/ventoy/ventoy.json
 ```
 
 顯示
@@ -252,12 +268,152 @@ cat /media/$(id -un)/Ventoy/ventoy/ventoy.json
             "class": "zorin-os"
         },
         {
+            "key": "antergos",
+            "class": "antergos"
+        },
+        {
+            "key": "archlinux",
+            "class": "archlinux"
+        },
+        {
+            "key": "arcolinux",
+            "class": "arcolinux"
+        },
+        {
+            "key": "chakra",
+            "class": "chakra"
+        },
+        {
+            "key": "crunchbang",
+            "class": "crunchbang"
+        },
+        {
+            "key": "devuan",
+            "class": "devuan"
+        },
+        {
+            "key": "edubuntu",
+            "class": "edubuntu"
+        },
+        {
+            "key": "endeavouros",
+            "class": "endeavouros"
+        },
+        {
+            "key": "fedora",
+            "class": "fedora"
+        },
+        {
+            "key": "frugalware",
+            "class": "frugalware"
+        },
+        {
+            "key": "gentoo",
+            "class": "gentoo"
+        },
+        {
+            "key": "gnu-linux",
+            "class": "gnu-linux"
+        },
+        {
+            "key": "kali",
+            "class": "kali"
+        },
+        {
+            "key": "kaos",
+            "class": "kaos"
+        },
+        {
+            "key": "korora",
+            "class": "korora"
+        },
+        {
+            "key": "lubuntu",
+            "class": "lubuntu"
+        },
+        {
+            "key": "macosx",
+            "class": "macosx"
+        },
+        {
+            "key": "mageia",
+            "class": "mageia"
+        },
+        {
+            "key": "Manjaro.i686",
+            "class": "Manjaro.i686"
+        },
+        {
+            "key": "manjaro",
+            "class": "manjaro"
+        },
+        {
+            "key": "Manjaro.x86_64",
+            "class": "Manjaro.x86_64"
+        },
+        {
+            "key": "Manjaro.x86_64",
+            "class": "Manjaro.x86_64"
+        },
+        {
+            "key": "sabayon",
+            "class": "sabayon"
+        },
+        {
+            "key": "siduction",
+            "class": "siduction"
+        },
+        {
+            "key": "steamos",
+            "class": "steamos"
+        },
+        {
+            "key": "void",
+            "class": "void"
+        },
+        {
+            "key": "xubuntu",
+            "class": "xubuntu"
+        },
+        {
+            "key": "win11",
+            "class": "win11"
+        },
+        {
+            "key": "winxp",
+            "class": "winxp"
+        },
+        {
+            "key": "winvista",
+            "class": "winvista"
+        },
+        {
             "key": "windows",
             "class": "windows"
         },
         {
             "key": "hirens",
             "class": "windows"
+        },
+        {
+            "key": "memtest",
+            "class": "memtest"
+        },
+        {
+            "key": "bsd",
+            "class": "bsd"
+        },
+        {
+            "key": "driver",
+            "class": "driver"
+        },
+        {
+            "key": "efi",
+            "class": "efi"
+        },
+        {
+            "key": "clonezilla",
+            "class": "clonezilla"
         },
         {
             "key": "iso",
