@@ -26,6 +26,10 @@ parent: 入門
 
 * [安裝](#安裝)
 * [確認](#確認)
+* [預留硬碟空間建立分割區](#預留硬碟空間建立分割區)
+* [格式化分割區](#格式化分割區)
+* [再次確認](#再次確認)
+
 
 ## 安裝
 
@@ -102,5 +106,70 @@ sudo cfdisk /dev/sdc
 >>  /dev/sdc1   *           2048   179175423   179173376   85.4G    7 HPFS/NTFS/exFAT
     /dev/sdc2          179175424   179240959       65536     32M   ef EFI (FAT-12/16/32)
     Free space         179240960   242155520    62914561     30G
+
+```
+
+## 預留硬碟空間建立分割區
+
+> 將「額外預留硬碟空間」，建立「分割區」
+
+``` sh
+sudo parted --script /dev/sdc -- \
+    mkpart primary 91.8GB '-1' \
+    print
+```
+
+> 關於「91.8GB」可以從上面「Free Space」的「Start」找到
+
+> 關於「'-1'」指的是「End」到「最後」。
+
+> 關於「--」，是因為要下「'-1'」，這樣才不會出錯。可以參考「man bash」找到「--」的用法。
+
+完成後會顯示
+
+```
+Model: Kingston DataTraveler 3.0 (scsi)
+Disk /dev/sdc: 124GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      1049kB  91.7GB  91.7GB  primary               boot
+ 2      91.7GB  91.8GB  33.6MB  primary  fat16        esp
+ 3      91.8GB  124GB   32.2GB  primary
+```
+
+
+## 格式化分割區
+
+執行下面指令，將「/dev/sdc3」格式化
+
+``` sh
+sudo mkfs.ext4 -F /dev/sdc3
+```
+
+
+## 再次確認
+
+執行下面指令
+
+``` sh
+sudo parted /dev/sdc print
+```
+
+顯示
+
+```
+Model: Kingston DataTraveler 3.0 (scsi)
+Disk /dev/sdc: 124GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      1049kB  91.7GB  91.7GB  primary               boot
+ 2      91.7GB  91.8GB  33.6MB  primary  fat16        esp
+ 3      91.8GB  124GB   32.2GB  primary  ext4
 
 ```
