@@ -1,6 +1,6 @@
 ---
 title: 如何移除「Ventoy」
-nav_order: 1040
+nav_order: 1050
 has_children: false
 parent: 入門
 ---

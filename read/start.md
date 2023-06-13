@@ -13,6 +13,7 @@ has_children: true
 | [如何安裝「Ventoy」到「USB隨身碟」](start/install) |
 | [如何更改「Ventoy」的「佈景主題」](start/theme) |
 | [如何安裝「Ventoy」到「USB隨身碟」，並且預留「額外硬碟空間」](start/install-preserve-space) |
+| [如何移除「Ventoy」](start/remove) |
 
 
 ## 相關筆記
