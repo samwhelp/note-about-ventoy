@@ -15,6 +15,7 @@ parent: 入門
 
 * [隨身碟資訊](#隨身碟資訊)
 * [操作步驟](#操作步驟)
+* [注意事項](#注意事項)
 
 
 ## 隨身碟資訊
@@ -91,6 +92,9 @@ Number  Start  End  Size  Type  File system  Flags
 * [安裝](#安裝)
 * [確認](#確認)
 * [下載ISO檔案](#下載ISO檔案)
+* [注意事項](#注意事項)
+* [重新安裝](#重新安裝)
+* [升級安裝](#升級安裝)
 
 
 ## 切換到工作資料夾
@@ -462,4 +466,81 @@ wget -c https://free.nchc.org.tw/arch/iso/2022.01.01/archlinux-2022.01.01-x86_64
 
 ```
    -u  update Ventoy in sdX
+```
+
+當您的「目標隨身碟」已經有安裝「Ventoy」時，
+
+## 重新安裝
+
+採用「**-i**」選項，執行下面指令
+
+``` sh
+sudo ./Ventoy2Disk.sh -i /dev/sdc
+```
+
+其中會顯示類似如下的提示訊息
+
+```
+
+/dev/sdc already contains a Ventoy with version 1.0.91
+Use -u option to do a safe upgrade operation.
+OR if you really want to reinstall Ventoy to /dev/sdc, please use -I option.
+
+````
+
+若是改採用「**-I**」這個選項，執行下面指令，就會將「/dev/sdc」的資料抹去，重新分割安裝。
+
+``` sh
+sudo ./Ventoy2Disk.sh -I /dev/sdc
+```
+
+會顯示
+
+```
+
+**********************************************
+      Ventoy: 1.0.91  x86_64
+      longpanda admin@ventoy.net
+      https://www.ventoy.net
+**********************************************
+
+grep: warning: stray \ before -
+Disk : /dev/sdc
+Model: Kingston DataTraveler 3.0 (scsi)
+Size : 115 GB
+Style: MBR
+
+
+Attention:
+You will install Ventoy to /dev/sdc.
+All the data on the disk /dev/sdc will be lost!!!
+
+Continue? (y/n)
+
+```
+
+
+## 升級安裝
+
+若是改採用「**-u**」這個選項，執行下面指令，就會將「/dev/sdc」的資料保留，進行「Ventoy升級安裝」。
+
+
+``` sh
+sudo ./Ventoy2Disk.sh -u /dev/sdc
+```
+
+顯示
+
+```
+
+**********************************************
+      Ventoy: 1.0.91  x86_64
+      longpanda admin@ventoy.net
+      https://www.ventoy.net
+**********************************************
+
+grep: warning: stray \ before -
+Upgrade operation is safe, all the data in the 1st partition (iso files and other) will be unchanged!
+
+Update Ventoy  1.0.91 ===> 1.0.91   Continue? (y/n)
 ```
