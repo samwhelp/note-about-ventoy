@@ -58,19 +58,48 @@ Number  Start   End    Size   File system  Name     Flags
  1      1049kB  124GB  124GB               primary
 ```
 
-或是也可以執行下面指令
-
-``` sh
-sudo parted --script "/dev/sdc" -- \
-	mktable gpt \
-	mkpart primary ext4 1M '-1' \
-	print
-```
-
-執行下面指令，格式化剛剛建立的分割區
+若是要將剛剛建立的分割區「/dev/sdc1」，格式化成「ext4」的格式，執行下面指令
 
 ``` sh
 sudo mkfs.ext4 -F /dev/sdc1
+```
+
+若是要將剛剛建立的分割區「/dev/sdc1」，格式化成「fat32」的格式，執行下面指令
+
+``` sh
+sudo mkfs.fat -F32 /dev/sdc1
+```
+
+格式化完成後，可以執行下面指令確認
+
+``` sh
+sudo parted /dev/sdc print
+```
+
+若是「ext4」，顯示如下
+
+```
+Model: Kingston DataTraveler 3.0 (scsi)
+Disk /dev/sdc: 124GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start   End    Size   File system  Name     Flags
+ 1      1049kB  124GB  124GB  ext4         primary
+```
+
+若是「fat32」，顯示如下
+
+```
+Model: Kingston DataTraveler 3.0 (scsi)
+Disk /dev/sdc: 124GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start   End    Size   File system  Name     Flags
+ 1      1049kB  124GB  124GB  fat32        primary
 ```
 
 
