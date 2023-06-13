@@ -133,6 +133,16 @@ sudo parted --script -- "/dev/sdc" \
 	print
 ```
 
+或是執行下面指令
+
+``` sh
+sudo parted --script -- "/dev/sdc" \
+	mktable gpt \
+	mkpart primary 1M '50%' \
+	mkpart primary '50%' '100%' \
+	print
+```
+
 執行下面指令
 
 ``` sh
