@@ -126,7 +126,7 @@ sudo parted /dev/sdc print free
 執行下面指令
 
 ``` sh
-sudo parted --script -- "/dev/sdc"\
+sudo parted --script -- "/dev/sdc" \
 	mktable gpt \
 	mkpart primary 1M '50%' \
 	mkpart primary '50%' '-1' \
