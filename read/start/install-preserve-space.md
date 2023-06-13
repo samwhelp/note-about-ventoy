@@ -173,3 +173,9 @@ Number  Start   End     Size    Type     File system  Flags
  3      91.8GB  124GB   32.2GB  primary  ext4
 
 ```
+
+
+
+## Manpage
+
+* man [parted](https://man.archlinux.org/man/parted.8.en)
