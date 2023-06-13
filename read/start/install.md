@@ -468,7 +468,9 @@ wget -c https://free.nchc.org.tw/arch/iso/2022.01.01/archlinux-2022.01.01-x86_64
    -u  update Ventoy in sdX
 ```
 
-當您的「目標隨身碟」已經有安裝「Ventoy」時，
+
+> 當您的「目標隨身碟」已經有安裝「Ventoy」時，可以「[重新安裝](#重新安裝)」或「[升級安裝](#升級安裝)」
+
 
 ## 重新安裝
 
