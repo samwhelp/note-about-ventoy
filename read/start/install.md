@@ -8,10 +8,14 @@ parent: 入門
 
 # 如何安裝「Ventoy」到「USB隨身碟」
 
-
 延續前面[如何下載「Ventoy」](download)，
 
 接下來要安裝「Ventoy」到「隨身碟」。
+
+
+* [隨身碟資訊](#隨身碟資訊)
+* [操作步驟](#操作步驟)
+
 
 ## 隨身碟資訊
 
@@ -79,14 +83,25 @@ Disk Flags:
 Number  Start  End  Size  Type  File system  Flags
 ```
 
+
 ## 操作步驟
 
+* [切換到工作資料夾](#切換到工作資料夾)
+* [操作選項](#操作選項)
+* [安裝](#安裝)
+* [確認](#確認)
+* [下載ISO檔案](#下載ISO檔案)
+
+
+## 切換到工作資料夾
 
 執行下面指令，切換到「ventoy-1.0.91」這個資料夾。
 
 ``` sh
 cd ventoy-1.0.91
 ```
+
+## 操作選項
 
 執行
 
@@ -125,6 +140,9 @@ Usage:  Ventoy2Disk.sh CMD [ OPTION ] /dev/sdX
    -n          try non-destructive installation (only for install)
 
 ```
+
+
+## 安裝
 
 執行下面指令，安裝「Ventoy」到「隨身碟」的操作步驟。
 
@@ -207,7 +225,10 @@ Install Ventoy to /dev/sdc successfully finished.
 
 ```
 
-這時候就已經安裝完成了。
+> 這時候就已經安裝完成了。
+
+
+## 確認
 
 接下來只是觀看安裝好後，隨身碟相關的資訊。
 
