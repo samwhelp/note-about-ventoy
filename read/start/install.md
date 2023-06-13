@@ -159,6 +159,8 @@ sudo ./Ventoy2Disk.sh -i /dev/sdc
 sudo sh Ventoy2Disk.sh -i /dev/sdc
 ```
 
+> 這裡是採用「**-i**」這個選項，請對照參考下面紀錄的「[注意事項](#注意事項)」。
+
 會先顯示
 
 ```
@@ -438,3 +440,26 @@ wget -c https://free.nchc.org.tw/arch/iso/2022.01.01/archlinux-2022.01.01-x86_64
 就會有剛剛下載的四個ISO開機選項可供選擇。
 
 > 也可以新增不同的資料夾放置「ISO檔案」，一樣偵測得到「ISO檔案」。
+
+
+## 注意事項
+
+在上面「[安裝](#安裝)」的那個操作步驟。
+
+是採取「**-i**」這個選項。
+
+```
+   -i  install Ventoy to sdX (fails if disk already installed with Ventoy)
+```
+
+另外有「**-I**」
+
+```
+   -I  force install Ventoy to sdX (no matter if installed or not)
+```
+
+和「**-U**」選項可選。
+
+```
+   -u  update Ventoy in sdX
+```
