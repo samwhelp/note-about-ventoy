@@ -18,3 +18,4 @@ has_children: true
 ## 相關筆記
 
 * [grub 探索筆記](https://samwhelp.github.io/note-about-grub/)
+* [disk 探索筆記](https://samwhelp.github.io/note-about-disk/)
