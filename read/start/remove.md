@@ -102,6 +102,66 @@ Number  Start   End    Size   File system  Name     Flags
  1      1049kB  124GB  124GB  fat32        primary
 ```
 
+## 其他分割法的參考指令
+
+執行下面指令
+
+``` sh
+sudo parted --script "/dev/sdc" -- \
+	mktable gpt \
+	mkpart primary 1M '50%' \
+	mkpart primary '50%' '-1' \
+	print
+```
+
+執行下面指令
+
+``` sh
+sudo parted --script "/dev/sdc" -- \
+	mktable gpt \
+	mkpart primary 1M 2M \
+	mkpart primary 2M '-1' \
+	set 1 bios_grub on \
+	print
+```
+
+執行下面指令
+
+``` sh
+sudo parted --script "/dev/sdc" -- \
+	mktable gpt \
+	mkpart primary 1M 2M \
+	mkpart primary 2M '50%' \
+	mkpart primary '50%' '-1' \
+	set 1 bios_grub on \
+	print
+```
+
+執行下面指令
+
+``` sh
+sudo parted --script "/dev/sdc" -- \
+	mktable gpt \
+	mkpart primary 1M 2M \
+	mkpart primary 2M '30%' \
+	mkpart primary '30%' '60%' \
+	mkpart primary '60%' '-1' \
+	set 1 bios_grub on \
+	print
+```
+
+執行下面指令
+
+``` sh
+sudo parted --script "/dev/sdc" -- \
+	mktable gpt \
+	mkpart primary 1M 2M \
+	mkpart primary 2M '33%' \
+	mkpart primary '33%' '66%' \
+	mkpart primary '66%' '-1' \
+	set 1 bios_grub on \
+	print
+```
 
 ## Manpage
 
