@@ -95,6 +95,7 @@ Number  Start  End  Size  Type  File system  Flags
 * [注意事項](#注意事項)
 * [重新安裝](#重新安裝)
 * [升級安裝](#升級安裝)
+* [預留額外空間安裝](#預留額外空間安裝)
 
 
 ## 切換到工作資料夾
@@ -546,3 +547,8 @@ Upgrade operation is safe, all the data in the 1st partition (iso files and othe
 
 Update Ventoy  1.0.91 ===> 1.0.91   Continue? (y/n)
 ```
+
+
+## 預留額外空間安裝
+
+請參考[如何安裝「Ventoy」到「USB隨身碟」，並且預留「額外硬碟空間」](https://samwhelp.github.io/note-about-ventoy/read/start/install-preserve-space.html)
