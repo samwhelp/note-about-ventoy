@@ -82,10 +82,10 @@ Number  Start  End  Size  Type  File system  Flags
 ## 操作步驟
 
 
-執行下面指令，切換到「ventoy-1.0.71」這個資料夾。
+執行下面指令，切換到「ventoy-1.0.91」這個資料夾。
 
 ``` sh
-cd ventoy-1.0.71
+cd ventoy-1.0.91
 ```
 
 執行
@@ -105,7 +105,7 @@ sudo sh Ventoy2Disk.sh -h
 ```
 
 **********************************************
-      Ventoy: 1.0.71  x86_64
+      Ventoy: 1.0.91  x86_64
       longpanda admin@ventoy.net
       https://www.ventoy.net
 **********************************************
@@ -113,13 +113,13 @@ sudo sh Ventoy2Disk.sh -h
 Usage:  Ventoy2Disk.sh CMD [ OPTION ] /dev/sdX
   CMD:
    -i  install Ventoy to sdX (fails if disk already installed with Ventoy)
-   -I  force install Ventoy to sdX (no matter installed or not)
+   -I  force install Ventoy to sdX (no matter if installed or not)
    -u  update Ventoy in sdX
    -l  list Ventoy information in sdX
 
   OPTION: (optional)
    -r SIZE_MB  preserve some space at the bottom of the disk (only for install)
-   -s/-S       enable/disable secure boot support (default is disabled)
+   -s/-S       enable/disable secure boot support (default is enabled)
    -g          use GPT partition style, default is MBR (only for install)
    -L          Label of the 1st exfat partition (default is Ventoy)
    -n          try non-destructive installation (only for install)
@@ -145,11 +145,12 @@ sudo sh Ventoy2Disk.sh -i /dev/sdc
 ```
 
 **********************************************
-      Ventoy: 1.0.71  x86_64
+      Ventoy: 1.0.91  x86_64
       longpanda admin@ventoy.net
       https://www.ventoy.net
 **********************************************
 
+grep: warning: stray \ before -
 Disk : /dev/sdc
 Model: Kingston DataTraveler 3.0 (scsi)
 Size : 115 GB
@@ -161,6 +162,7 @@ You will install Ventoy to /dev/sdc.
 All the data on the disk /dev/sdc will be lost!!!
 
 Continue? (y/n)
+
 ```
 
 這時候輸入「y」，並且按下「Enter」。
@@ -168,8 +170,10 @@ Continue? (y/n)
 接著會在顯示下面訊息
 
 ```
+
 All the data on the disk /dev/sdc will be lost!!!
 Double-check. Continue? (y/n)
+
 ```
 
 這時候一樣輸入「y」，並且按下「Enter」。
@@ -183,7 +187,7 @@ Done
 Wait for partitions ...
 partition exist OK
 create efi fat fs /dev/sdc2 ...
-mkfs.fat 4.1 (2017-01-24)
+mkfs.fat 4.2 (2021-01-31)
 success
 Wait for partitions ...
 /dev/sdc1 exist OK
@@ -198,12 +202,6 @@ mkexfatfs success
 writing data to disk ...
 sync data ...
 esp partition processing ...
-Open ventoy efi file 0x610ac0
-ventoy x64 efi file size 1785856 ...
-Open bootx64 efi file 0x610ac0
-Open ventoy ia32 efi file 0x610f10
-ventoy efi file size 1204224 ...
-Open bootia32 efi file 0x610ac0
 
 Install Ventoy to /dev/sdc successfully finished.
 
@@ -222,17 +220,17 @@ sudo fdisk /dev/sdc -l
 顯示
 
 ```
-Disk /dev/sdc: 115.24 GiB, 123730388992 bytes, 241660916 sectors
+Disk /dev/sdc: 115.47 GiB, 123983626752 bytes, 242155521 sectors
 Disk model: DataTraveler 3.0
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: dos
-Disk identifier: 0x83fed5be
+Disk identifier: 0xc62864a8
 
 Device     Boot     Start       End   Sectors   Size Id Type
-/dev/sdc1  *         2048 241595375 241593328 115.2G  7 HPFS/NTFS/exFAT
-/dev/sdc2       241595376 241660911     65536    32M ef EFI (FAT-12/16/32)
+/dev/sdc1  *         2048 242089983 242087936 115.4G  7 HPFS/NTFS/exFAT
+/dev/sdc2       242089984 242155519     65536    32M ef EFI (FAT-12/16/32)
 ```
 
 執行下面指令
@@ -253,6 +251,7 @@ Disk Flags:
 Number  Start   End    Size    Type     File system  Flags
  1      1049kB  124GB  124GB   primary               boot
  2      124GB   124GB  33.6MB  primary  fat16        esp
+
 ```
 
 執行下面指令
@@ -264,8 +263,8 @@ sudo lsblk | grep sdc
 顯示
 
 ```
-sdc      8:32   1 115.2G  0 disk
-├─sdc1   8:33   1 115.2G  0 part
+sdc      8:32   1 115.5G  0 disk
+├─sdc1   8:33   1 115.4G  0 part
 └─sdc2   8:34   1    32M  0 part
 ```
 
@@ -278,7 +277,7 @@ sudo blkid /dev/sdc
 顯示
 
 ```
-/dev/sdc: PTUUID="83fed5be" PTTYPE="dos"
+/dev/sdc: PTUUID="c62864a8" PTTYPE="dos"
 ```
 
 執行下面指令
@@ -290,7 +289,7 @@ sudo blkid /dev/sdc1
 顯示
 
 ```
-/dev/sdc1: LABEL="Ventoy" UUID="758B-CE47" TYPE="exfat" PTTYPE="dos" PARTUUID="83fed5be-01"
+/dev/sdc1: LABEL="Ventoy" UUID="1415-63BF" BLOCK_SIZE="512" TYPE="exfat" PARTUUID="c62864a8-01"
 ```
 
 執行下面指令
@@ -302,7 +301,7 @@ sudo blkid /dev/sdc2
 顯示
 
 ```
-/dev/sdc2: SEC_TYPE="msdos" LABEL_FATBOOT="VTOYEFI" LABEL="VTOYEFI" UUID="DE2E-30BF" TYPE="vfat" PARTUUID="83fed5be-02"
+/dev/sdc2: SEC_TYPE="msdos" LABEL_FATBOOT="VTOYEFI" LABEL="VTOYEFI" UUID="83A6-E98E" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="c62864a8-02"
 ```
 
 接下來，可以使用「pcmanfm-qt」或是「thunar」等掛載剛剛的隨身碟，或是將隨身碟拔出再插入，就會自動掛載。
@@ -317,12 +316,12 @@ sudo lsblk | grep sdc
 顯示
 
 ```
-sdc      8:32   1 115.2G  0 disk
-├─sdc1   8:33   1 115.2G  0 part /media/sam/Ventoy
+sdc      8:32   1 115.5G  0 disk
+├─sdc1   8:33   1 115.4G  0 part /run/media/sam/Ventoy
 └─sdc2   8:34   1    32M  0 part
 ```
 
-就會掛載在「/media/sam/Ventoy」這個資料夾
+在「Arch Linux」就會掛載在「/run/media/sam/Ventoy」這個資料夾
 
 > 因為我的登入帳號是「sam」
 
@@ -338,37 +337,49 @@ id -un
 sam
 ```
 
-所以要在您的環境，找到類似「/media/sam/Ventoy」這個路徑
+所以要在您的環境，找到類似「/run/media/sam/Ventoy」這個路徑
 
 可以執行下面指令，
 
 ``` sh
-echo /media/$(id -un)/Ventoy
+echo /run/media/$(id -un)/Ventoy
 ```
 
 顯示
 
 ```
-/media/sam/Ventoy
+/run/media/sam/Ventoy
 ```
 
 執行
 
 ``` sh
-ls /media/$(id -un)/Ventoy
+ls /run/media/$(id -un)/Ventoy
 ```
 
 
 ## 下載ISO檔案
 
-執行下面指令，切換到「/media/sam/Ventoy」這個資料夾
+執行下面指令，切換到「/run/media/sam/Ventoy」這個資料夾
 
 
 ``` sh
-cd /media/$(id -un)/Ventoy
+cd /run/media/$(id -un)/Ventoy
 ```
 
-執行下面指令，下載測試的「ISO檔案」到「/media/sam/Ventoy」這個資料夾
+執行下面指令，顯示目前所在路徑
+
+```
+pwd
+```
+
+顯示
+
+```
+/run/media/sam/Ventoy
+```
+
+執行下面指令，下載測試的「ISO檔案」到「/run/media/sam/Ventoy」這個資料夾
 
 ``` sh
 wget -c https://cdimage.ubuntu.com/xubuntu/releases/20.04/release/xubuntu-20.04.4-desktop-amd64.iso
@@ -380,3 +391,5 @@ wget -c https://free.nchc.org.tw/arch/iso/2022.01.01/archlinux-2022.01.01-x86_64
 下載完畢後，接著重新開機，在「BIOS」選擇「隨身碟」開機，就會出現「GRUB開機選單」，
 
 就會有剛剛下載的四個ISO開機選項可供選擇。
+
+> 也可以新增不同的資料夾放置「ISO檔案」，一樣偵測得到「ISO檔案」。
