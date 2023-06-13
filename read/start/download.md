@@ -9,35 +9,49 @@ parent: 入門
 # 如何下載「Ventoy」
 
 
+## 下載點
+
 可以到「[https://github.com/ventoy/Ventoy/releases](https://github.com/ventoy/Ventoy/releases)」找到最新的版本。
 
-以「[Ventoy 1.0.71 release](https://github.com/ventoy/Ventoy/releases/tag/v1.0.71)」為例。
+以下根據「[Ventoy 1.0.91 release](https://github.com/ventoy/Ventoy/releases/tag/v1.0.91)」為例。
 
 
 ## 操作步驟
 
-執行下面指令，下載「[ventoy-1.0.71-linux.tar.gz](https://github.com/ventoy/Ventoy/releases/download/v1.0.71/ventoy-1.0.71-linux.tar.gz)」。
+* [下載](#下載)
+* [解壓縮](#解壓縮)
+* [概覽](#概覽)
+
+
+## 下載
+
+執行下面指令，下載「[ventoy-1.0.91-linux.tar.gz](https://github.com/ventoy/Ventoy/releases/download/v1.0.91/ventoy-1.0.91-linux.tar.gz)」。
 
 ``` sh
-wget -c 'https://github.com/ventoy/Ventoy/releases/download/v1.0.71/ventoy-1.0.71-linux.tar.gz'
+wget -c 'https://github.com/ventoy/Ventoy/releases/download/v1.0.91/ventoy-1.0.91-linux.tar.gz'
 ```
 
-會下載一個檔案「ventoy-1.0.71-linux.tar.gz」。
+會下載一個檔案「ventoy-1.0.91-linux.tar.gz」。
 
-接著執行下面的指令，解開「ventoy-1.0.71-linux.tar.gz」。
+
+## 解壓縮
+
+接著執行下面的指令，解開「ventoy-1.0.91-linux.tar.gz」。
 
 
 ``` sh
-tar xf ventoy-1.0.71-linux.tar.gz
+tar xf ventoy-1.0.91-linux.tar.gz
 ```
 
-會產生一個資料夾「ventoy-1.0.71」。
+會產生一個資料夾「ventoy-1.0.91」。
 
 
-接著執行下面的指令，
+## 概覽
+
+接著執行下面的指令，觀看資料夾「ventoy-1.0.91」。
 
 ``` sh
-ls ventoy-1.0.71 -1
+ls -1 ventoy-1.0.91
 ```
 
 顯示
@@ -61,17 +75,16 @@ VentoyWeb.sh
 WebUI
 ```
 
-執行下面的指令，
-
+執行下面的指令，樹狀觀看資料夾「ventoy-1.0.91」。
 
 ``` sh
-ls ventoy-1.0.71 -1
+tree ventoy-1.0.91
 ```
 
 顯示
 
 ```
-ventoy-1.0.71
+ventoy-1.0.91
 ├── boot
 │   ├── boot.img
 │   └── core.img.xz
@@ -171,6 +184,7 @@ ventoy-1.0.71
 │       ├── vtoycli.xz
 │       └── xzcat
 ├── ventoy
+│   ├── ventoy_4k.disk.img.xz
 │   ├── ventoy.disk.img.xz
 │   └── version
 ├── Ventoy2Disk.sh
@@ -228,7 +242,7 @@ ventoy-1.0.71
             ├── languages.js
             └── vtoy.js
 
-25 directories, 130 files
+26 directories, 131 files
 ```
 
 
